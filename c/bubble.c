@@ -1,19 +1,30 @@
 #include <stdio.h>
 
-int unsorted[5] = {1,67,5,25,4};
-int sorted[10];
+int raw_data[] = {7,4,2,5};
 
-int main()  {
-    for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 5; j++) {
-            if (unsorted[i] < unsorted[j])  {
-                sorted[i] = unsorted[i];
+void bubble()   {
+    for (int i = 0; i < sizeof(raw_data) / sizeof(raw_data[0]); i++)    {
+        for (int j = 0; j < sizeof(raw_data) / sizeof(raw_data[0]) - 1; j++)    {
+            if (raw_data[j] > raw_data[j + 1])  {
+                int temp = raw_data[j];
+                raw_data[j] = raw_data[j + 1];
+                raw_data[j + 1] = temp;
             }
         }
-        printf("\n");
     }
-    for (int i = 0; i < 5; i++) {
-        printf("%d,", sorted[i]);
+}
+
+int main()  {
+    printf("Raw data: ");
+    for (int i = 0; i < sizeof(raw_data) / sizeof(raw_data[0]); i++)    {
+        printf("%d ", raw_data[i]);
+    }
+
+    bubble();
+
+    printf("\nSorted data: ");
+    for (int i = 0; i < sizeof(raw_data) / sizeof(raw_data[0]); i++)    {
+        printf("%d ", raw_data[i]);
     }
     return 0;
 }
