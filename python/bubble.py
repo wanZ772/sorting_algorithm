@@ -1,3 +1,6 @@
+# time : O(n^2)
+# Space: O(1)
+
 from time import time
 from random import randint
 
@@ -10,9 +13,9 @@ def bubble():
     for i in raw_data:
         for j in range(len(raw_data) - 1):
             if raw_data[j] > raw_data[j+1]:
-                raw_data[j+1], raw_data[j] = raw_data[j], raw_data[j+1]
+                raw_data[j], raw_data[j+1] = raw_data[j+1], raw_data[j]
 
-random_generator(1000)
+random_generator(10)
 print(f"Raw data: {raw_data}")
 start = time()
 bubble()
