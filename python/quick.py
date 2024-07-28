@@ -12,20 +12,22 @@ def random_generator(target):
 def quick(data):
     n = len(data)
 
-    if n <= 1:
+    if n < 1:
         return data
     else:
-        mid = data[-1]
         left, right = [], []
+
+        pivot = data[-1]
         for i in data[:-1]:
-            if i < mid:
+            if i < pivot:
                 left.append(i)
             else:
                 right.append(i)
+
         left = quick(left)
         right = quick(right)
-        return left + [mid] + right
-
+        return left + [pivot] + right
+        # return sorted_
 random_generator(10)
 print(f"Raw data: {raw_data}")
 start = time()
