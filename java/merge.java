@@ -33,6 +33,9 @@ public class Main {
         }
       }
       
+        left = merge(left);
+        right = merge(right);
+
       int left_point = 0, right_point = 0, i = 0;
       int left_length = left.length, right_length = right.length;
       
